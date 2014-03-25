@@ -4,13 +4,17 @@ define(['knockout'], function(ko) {
     this.scoreKeeper = scoreKeeper;
     this.timeKeeper = timeKeeper;
 
+    this.baseLeeway = ko.observable(10);
+
     this.wins = ko.observable(0);
     this.losses = ko.observable(0);
 
     this.pwning = ko.computed(function() { return ( vm.wins()-vm.losses() ) >= 3 });
     this.pwnt = ko.computed(function() { return ( vm.losses()-vm.wins() )  >= 3 });
 
-    this.beforeMidnight = ko.observable(this.timeKeeper.beforeMidnight());
+    this.beforeMidnight = ko.computed(function() {
+        return vm.timeKeeper.beforeMidnight(vm.baseLeeway()+vm.wins()-vm.losses());
+    });
 
     this.stahp = ko.computed(function() {
       return vm.pwnt() || !vm.beforeMidnight();
@@ -36,15 +40,11 @@ define(['knockout'], function(ko) {
   ScoreBoard.prototype.win = function() {
     this.wins(++this.scoreKeeper.wins);
     this.scoreKeeper.save();
-
-    this.beforeMidnight(this.timeKeeper.beforeMidnight());
   };
 
   ScoreBoard.prototype.lose = function() {
     this.losses(++this.scoreKeeper.losses);
     this.scoreKeeper.save();
-
-    this.beforeMidnight(this.timeKeeper.beforeMidnight());
   };
 
   return ScoreBoard;
