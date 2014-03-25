@@ -19,6 +19,16 @@ define(['models/timekeeper', 'moment'], function(TimeKeeperModel, moment) {
 
         expect(fiveMinsAgo.isSame(timeKeeper.currentTime, 'minute')).to.equal(true);
       });
+
+      it("Should not automagically tick over to the next midnight", function() {
+        var timeKeeper = new TimeKeeperModel();
+
+        // It's now yesterday
+        timeKeeper.startTime = moment().subtract('days', 1);
+        timeKeeper.updateTime();
+
+        expect(timeKeeper.beforeMidnight()).to.equal(false);
+      });
     });
 });
 

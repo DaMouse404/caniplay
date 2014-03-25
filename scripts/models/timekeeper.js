@@ -1,6 +1,6 @@
 define(['moment'], function(moment) {
   function TimeKeeper() {
-
+    this.startTime = moment();
   }
   
   // Leeway = BUT MOM! X MORE MINUTES!
@@ -12,7 +12,7 @@ define(['moment'], function(moment) {
   TimeKeeper.prototype.beforeMidnight = function(leeway) {
     this.updateTime(leeway);
 
-    var midnight = moment().add('days',1).startOf('day');
+    var midnight = this.startTime.add('days',1).startOf('day');
 
     return this.currentTime.isBefore(midnight);
   };
