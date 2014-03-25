@@ -1,6 +1,8 @@
 define(['models/scorekeeper'], function(ScoreKeeperModel) {
     describe('ScoreKeeper', function() {
       it("Should correctly save to localStorage", function() {
+        localStorage.clear();
+
         var scoreKeeper = new ScoreKeeperModel();
 
         scoreKeeper.wins = 302;
@@ -12,6 +14,8 @@ define(['models/scorekeeper'], function(ScoreKeeperModel) {
       });
 
       it("Should correctly load from localStorage", function() {
+        localStorage.clear();
+
         var input = JSON.stringify({wins:500,losses:404});
 
         localStorage.setItem("scoreKeeper", input);
@@ -23,8 +27,10 @@ define(['models/scorekeeper'], function(ScoreKeeperModel) {
       });
 
       it("Should correctly save to the right localStorage object", function() {
-        var input1 = JSON.stringify({wins: 502, losses:403});
-        var input2 = JSON.stringify({wins: 301, losses:410});
+        localStorage.clear();
+
+        var input1 = {wins: 502, losses:403};
+        var input2 = {wins: 301, losses:410};
 
         var scoreKeeper1 = new ScoreKeeperModel('cheezburger-wrestling');
         scoreKeeper1.wins = input1.wins;
@@ -38,9 +44,9 @@ define(['models/scorekeeper'], function(ScoreKeeperModel) {
 
 
         expect(localStorage.getItem("scoreKeeper-cheezburger-wrestling"))
-          .to.equal(JSON.stringify({wins:502, losses:403}));
+          .to.equal(JSON.stringify(input1));
         expect(localStorage.getItem("scoreKeeper-cow-throwing"))
-          .to.equal(JSON.stringify({wins:301, losses:410}));
+          .to.equal(JSON.stringify(input2));
 
 
       });
