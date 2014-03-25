@@ -2,8 +2,12 @@
 
 .scoresheet {
   .score {
-    font-size: 20em;
+    font-size: 16em;
     text-align: center;
+
+    @media (min-width: @screen-sm-min) {
+      font-size: 20em;
+    }
   }
 
   button {
