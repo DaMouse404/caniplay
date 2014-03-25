@@ -1,5 +1,8 @@
 require(
-['models/scorekeeper', 'viewmodels/scoreboard', 'knockout'], 
-function(ScoreKeeper, ScoreBoard, ko) {
-  ko.applyBindings(new ScoreBoard(new ScoreKeeper("caniplay")), document.getElementById("scoreboard"));
+['models/scorekeeper', 'models/timekeeper', 'viewmodels/scoreboard', 'knockout'], 
+function(ScoreKeeper, TimeKeeper, ScoreBoard, ko) {
+  ko.applyBindings(
+      new ScoreBoard(new ScoreKeeper("caniplay"), new TimeKeeper), 
+      document.getElementById("scoreboard")
+  );
 });
