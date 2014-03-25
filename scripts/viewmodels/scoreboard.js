@@ -9,8 +9,8 @@ define(['knockout'], function(ko) {
     this.wins = ko.observable(0);
     this.losses = ko.observable(0);
 
-    this.pwning = ko.computed(function() { return ( vm.wins()-vm.losses() ) >= 3 });
-    this.pwnt = ko.computed(function() { return ( vm.losses()-vm.wins() )  >= 3 });
+    this.pwning = ko.computed(function() { return ( vm.wins()-vm.losses() ) >= 3; });
+    this.pwnt = ko.computed(function() { return ( vm.losses()-vm.wins() )  >= 3; });
 
     this.beforeMidnight = ko.computed(function() {
         return vm.timeKeeper.beforeMidnight(vm.baseLeeway()+vm.wins()-vm.losses());

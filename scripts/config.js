@@ -1,3 +1,6 @@
+/* jshint globalstrict:true */
+/* global requirejs */
+
 'use strict';
 
 requirejs.config({
