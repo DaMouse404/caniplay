@@ -17,8 +17,6 @@ define(function() {
   };
 
   ScoreKeeper.prototype.save = function() {
-    console.log(this.wins, this.losses);
-
     localStorage.setItem(this.key, JSON.stringify(this));
   };
 
