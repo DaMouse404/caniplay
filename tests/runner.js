@@ -1,5 +1,5 @@
 define([
-  'spec/scoreboard'
+  'spec/scorekeeper'
 ], function() {
   'use strict';
 

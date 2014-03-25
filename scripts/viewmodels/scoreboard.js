@@ -1,12 +1,20 @@
-define(['knockout'], function(ko) {
-  function Scoreboard() {
-    this.cutOff = ko.observable("14:00");
-    this.currentDate = ko.observable(new Date());
+define(['knockout','models/scorekeeper'], function(ko, ScoreKeeperModel) {
+  function ScoreBoard() {
+    this.scoreKeeper = new ScoreKeeperModel;
+
+    this.wins = ko.observable(0);
+    this.losses = ko.observable(0);
   }
 
-  Scoreboard.prototype.canIPlay = function() {
-    return "Far too late";
+  ScoreBoard.prototype.win = function() {
+    this.wins(++this.scoreKeeper.wins);
+    this.scoreKeeper.save();
   };
 
-  return Scoreboard;
+  ScoreBoard.prototype.lose = function() {
+    this.losses(++this.scoreKeeper.losses);
+    this.scoreKeeper.save();
+  };
+
+  return ScoreBoard;
 });

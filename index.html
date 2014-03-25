@@ -2,16 +2,38 @@
 <html>
 <head>
 <title>Can I Play?</title>
+
+<link rel="stylesheet/less" type="text/less" href="styles/app.less">
 </head>
 <body>
+<div class="container">
 
-<div id="scorekeeper">
+<div id="scoreboard" class="row">
 
+<div class="col-xs-6 scoresheet">
+<div id="wins" class="bg-success score" data-bind="text: wins">
+0
+</div>
+<button type="button" class="btn btn-success" data-bind="click: win">Win</button>
+</div>
 
+<div class="col-xs-6 scoresheet">
+<div id="losses" class="bg-danger score" data-bind="text: losses">
+0
+</div>
+<button type="button" class="btn btn-danger" data-bind="click: lose">Lose</button>
+</div>
 
 </div>
 
-<script data-main="scripts/app" src="bower_components/requirejs/require.js"></script>
+<div id="timekeeper" class="row">
+
+</div>
+
+</div>
+
+<script src="bower_components/less/dist/less-1.7.0.min.js"></script>
+<script data-main="scripts/config" src="bower_components/requirejs/require.js"></script>
 
 </body>
 </html>
