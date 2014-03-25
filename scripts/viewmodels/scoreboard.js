@@ -7,18 +7,25 @@ define(['knockout'], function(ko) {
     this.wins = ko.observable(0);
     this.losses = ko.observable(0);
 
+    this.pwning = ko.computed(function() { return ( vm.wins()-vm.losses() ) >= 3 });
+    this.pwnt = ko.computed(function() { return ( vm.losses()-vm.wins() )  >= 3 });
+
     this.beforeMidnight = ko.observable(this.timeKeeper.beforeMidnight());
 
-    this.gameText = ko.computed(function() {
-      if ( !vm.beforeMidnight() ) {
-        return "Dude Stahp!";
-      }
+    this.stahp = ko.computed(function() {
+      return vm.pwnt() || !vm.beforeMidnight();
+    });
 
-      if ( vm.losses() >= 5 ) {
+    this.gameText = ko.computed(function() {
+      if ( vm.pwnt() ) {
         return "It's just not worth it anymore!";
       }
 
-      if ( vm.wins() >= 5 ) {
+      if ( vm.stahp() ) {
+        return "Dude Stahp!";
+      }
+
+      if ( vm.pwning() ) {
         return "You got this! You are that guy!";
       }
 

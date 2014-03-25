@@ -27,7 +27,11 @@
 </div>
 
 <div class="row">
-  <div class="col-xs-12 gameText" data-bind="text: gameText"></div>
+  <div  class="col-xs-12 gameText" 
+        data-bind="text: gameText, 
+                   css: { 'bg-success': pwning() && !stahp(), 
+                          'bg-info': !pwning() && !stahp(), 
+                          'bg-danger': stahp() }"></div>
 </div>
 
 </div>
