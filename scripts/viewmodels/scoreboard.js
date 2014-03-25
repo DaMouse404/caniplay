@@ -2,12 +2,13 @@ define(['knockout'], function(ko) {
   function ScoreBoard(scoreKeeper, timeKeeper) {
     var vm = this;
     this.scoreKeeper = scoreKeeper;
+    this.scoreKeeper.load();
     this.timeKeeper = timeKeeper;
 
     this.baseLeeway = ko.observable(10);
 
-    this.wins = ko.observable(0);
-    this.losses = ko.observable(0);
+    this.wins = ko.observable(this.scoreKeeper.wins);
+    this.losses = ko.observable(this.scoreKeeper.losses);
 
     this.pwning = ko.computed(function() { return ( vm.wins()-vm.losses() ) >= 3; });
     this.pwnt = ko.computed(function() { return ( vm.losses()-vm.wins() )  >= 3; });
