@@ -13,7 +13,7 @@ define(['knockout'], function(ko) {
     this.pwnt = ko.computed(function() { return ( vm.losses()-vm.wins() )  >= 3; });
 
     this.beforeMidnight = ko.computed(function() {
-        return vm.timeKeeper.beforeMidnight(vm.baseLeeway()+vm.wins()-vm.losses());
+        return vm.timeKeeper.beforeMidnight(vm.baseLeeway()+vm.wins()-(vm.losses()*2));
     });
 
     this.stahp = ko.computed(function() {
