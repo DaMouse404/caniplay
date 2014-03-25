@@ -1,4 +1,4 @@
-define(['knockout','models/scorekeeper'], function(ko, ScoreKeeperModel) {
+define(['knockout'], function(ko) {
   function ScoreBoard(model) {
     this.scoreKeeper = model;
 
