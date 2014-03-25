@@ -1,0 +1,7 @@
+{
+  "cutoff": "00:00",
+  "leeway": "10",
+  "leewayleeway": "10",
+  "suckAt": 3
+  "suckStreak": 50,
+}

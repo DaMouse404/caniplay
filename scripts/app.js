@@ -1,0 +1,3 @@
+require(['moment','knockout'], function() {
+
+});

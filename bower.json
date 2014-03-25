@@ -1,0 +1,25 @@
+{
+  "name": "caniplay",
+  "version": "0.0.1",
+  "authors": [
+    "Christopher Sidebottom <git@damouse.co.uk>"
+  ],
+  "description": "Can I Play Today?",
+  "main": "index.html",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "momentjs": "~2.5.1",
+    "chai": "~1.9.1",
+    "mocha": "~1.18.2",
+    "knockout.js": "~3.0.0",
+    "requirejs": "~2.1.11"
+  }
+}
