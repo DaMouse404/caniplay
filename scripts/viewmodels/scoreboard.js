@@ -1,6 +1,6 @@
 define(['knockout','models/scorekeeper'], function(ko, ScoreKeeperModel) {
-  function ScoreBoard() {
-    this.scoreKeeper = new ScoreKeeperModel;
+  function ScoreBoard(model) {
+    this.scoreKeeper = model;
 
     this.wins = ko.observable(0);
     this.losses = ko.observable(0);
