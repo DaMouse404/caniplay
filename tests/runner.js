@@ -1,5 +1,6 @@
 define([
-  'spec/scorekeeper'
+  'spec/scorekeeper',
+  'spec/timekeeper'
 ], function() {
   'use strict';
 
