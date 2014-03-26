@@ -13,7 +13,8 @@
     "grunt-contrib-less": "~0.11.0",
     "grunt-contrib-requirejs": "~0.4.3",
     "grunt-contrib-watch": "~0.6.1",
-    "grunt-requirejs": "~0.4.1"
+    "grunt-requirejs": "~0.4.1",
+    "clean-css": "^2.1.7"
   },
   "repository": {
     "type": "git",
