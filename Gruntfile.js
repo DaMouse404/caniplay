@@ -9,13 +9,11 @@ module.exports = function (grunt) {
         requirejs: {
             compile: {
                 options: {
-                    baseUrl: 'scripts/',
+                    almond:true,
                     mainConfigFile: 'scripts/config.js',
-                    dir: 'build/',
-                    modules: [{name: 'app'}],
-                    optimize: 'uglify',
                     findNestedDependencies: true,
-                }
+                    out: 'build/app.js',
+               }
             }
         },
         less: {
@@ -43,7 +41,7 @@ module.exports = function (grunt) {
     });
 
     grunt.loadNpmTasks('grunt-contrib-less');
-    grunt.loadNpmTasks('grunt-contrib-requirejs');
+    grunt.loadNpmTasks('grunt-requirejs');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-watch');
